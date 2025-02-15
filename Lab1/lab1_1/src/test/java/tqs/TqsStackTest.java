@@ -2,6 +2,8 @@ package tqs;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TqsStackTest {
@@ -38,7 +40,10 @@ class TqsStackTest {
     }
 
     @Test
-    void afterNPops() {
+    void emptyExceptions() {
+        TqsStack<Integer> stack = new TqsStack<>();
 
+        assertThrows(NoSuchElementException.class, () -> stack.pop());
+        assertThrows(NoSuchElementException.class, () -> stack.peek());
     }
 }
